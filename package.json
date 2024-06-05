@@ -1,0 +1,30 @@
+{
+  "name": "myanmar-nric-list",
+  "version": "0.0.1",
+  "description": "Nric list and validation methods for myanmar nationality identification",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "ts-mocha test/**/*.spec.ts",
+    "lint": "eslint \"**\\*.ts\""
+  },
+  "keywords": [
+    "NRIC",
+    "NRC",
+    "Myanmar",
+    "Identification"
+  ],
+  "author": "Aaron Chen",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chai": "^4.3.1",
+    "@types/mocha": "^9.1.1",
+    "@types/node": "^17.0.42",
+    "chai": "^4.3.6",
+    "eslint": "^8.17.0",
+    "mocha": "^10.0.0",
+    "ts-mocha": "^10.0.0",
+    "typescript": "^4.7.3",
+    "typescript-eslint": "^7.12.0"
+  }
+}
