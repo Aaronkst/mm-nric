@@ -1,0 +1,4 @@
+tests/
+src/
+.eslint.config.mjs
+tsconfig.json

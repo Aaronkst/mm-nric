@@ -1,26 +1,72 @@
 /* eslint-disable no-useless-escape */
-import data from './nrc.json';
-import { Nric } from './types';
+import states from './data/states.json';
+import districts from './data/districts.json';
+import { District, NrcTypesEn, NrcTypesMm, State } from './index.interface';
+
+/* Fetching */
 
 /**
- * Get List of Nrics by city code
- * @param code The city code
+ * Get list of states
+ * @returns State[]
  */
-export function getListByCode(code: number): Nric[] {
-  const list = data.filter((nrc) => nrc.code === code);
-  return list;
+export function getStates(): State[] {
+  return states;
+}
+
+/**
+ * Get list of districts
+ * @returns State[]
+ */
+export function getDistricts(): State[] {
+  return districts;
+}
+
+/**
+ * Get list of districts by state
+ * @param state The state code (1 - 14)
+ * @return District[]
+ */
+export function getDistrictsByState(state: number): District[] {
+  if (!validateState(state)) return [];
+  const _list = districts.filter((nrc) => nrc.code === state);
+  return _list;
+}
+
+/* Validation */
+
+/**
+ * Validate state code
+ * @returns boolean
+ */
+export function validateState(state: number): boolean {
+  return !(state < 1 || state > 14);
+}
+
+/**
+ * Validate nrc type
+ * @returns boolean
+ */
+export function validateNrcType(type: string): boolean {
+  const checkEn = Object.values(NrcTypesEn).includes(
+    type.toUpperCase() as NrcTypesEn
+  );
+  const checkMm = Object.values(NrcTypesMm).includes(
+    type.toUpperCase() as NrcTypesMm
+  );
+  return checkEn || checkMm;
 }
 
 /**
  * Validate if provided string is a valid nric
- * @param nric The nric string to check
+ * @param nrc The nric string to check
+ * @returns boolean
  */
-export function validateNric(nric: string): boolean {
+export function validateNrc(nrc: string): boolean {
   try {
-    if (!nric.includes('/')) return false;
+    if (!nrc.includes('/')) return false;
 
     // eslint-disable-next-line prefer-const
-    let [code, string] = nric.split('/');
+    let [code, string] = nrc.split('/');
     string = string.replace(/[\(\)\s]/g, '');
 
     if (
@@ -32,25 +78,24 @@ export function validateNric(nric: string): boolean {
     const parsedCode = parseFloat(code);
     if (parsedCode < 1 || parsedCode > 14) return false;
 
-    const nricNumber = string.slice(-6);
-    if (isNaN(nricNumber as unknown as number)) return false;
+    const nrcNumber = string.slice(-6);
+    if (isNaN(nrcNumber as unknown as number)) return false;
 
     const townLength = string.length === 13 ? 6 : 3;
-    const nricType = string.length === 13 ? string[6] : string[3];
+    const nrcType = string.length === 13 ? string[6] : string[3];
+    if (!validateNrcType(nrcType)) return false;
 
     // TODO: Validate NRIC Types
     // console.log('nricType', nricType);
 
     const town = string.slice(0, townLength);
 
-    const checkNric = data.findIndex(
+    const checkNrc = districts.findIndex(
       (n) => n.en.toLowerCase() === town.toLowerCase() || n.mm.includes(town)
     );
 
-    return checkNric !== -1;
+    return checkNrc !== -1;
   } catch {
     return false;
   }
 }
-
-validateNric('12/PaZaDa(N)036558');

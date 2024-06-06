@@ -1,0 +1,72 @@
+[
+  {
+    "en": "Kachin",
+    "mm": "ကချင်",
+    "code": 1
+  },
+  {
+    "en": "Kayah",
+    "mm": "ကယား",
+    "code": 2
+  },
+  {
+    "en": "Kayin",
+    "mm": "ကရင်",
+    "code": 3
+  },
+  {
+    "en": "Chin",
+    "mm": "ချင်း",
+    "code": 4
+  },
+  {
+    "en": "Sagaing",
+    "mm": "စစ်ကိုင်း",
+    "code": 5
+  },
+  {
+    "en": "Tanintharyi",
+    "mm": "တနှင်းသာရီ",
+    "code": 6
+  },
+  {
+    "en": "Bago",
+    "mm": "ပဲခူး",
+    "code": 7
+  },
+  {
+    "en": "Magway",
+    "mm": "မကွေး",
+    "code": 8
+  },
+  {
+    "en": "Mandalay",
+    "mm": "မန္တလေး",
+    "code": 9
+  },
+  {
+    "en": "Mon",
+    "mm": "မွန်",
+    "code": 10
+  },
+  {
+    "en": "Rakhine",
+    "mm": "ရခိုင်",
+    "code": 11
+  },
+  {
+    "en": "Yangon",
+    "mm": "ရန်ကုန်",
+    "code": 12
+  },
+  {
+    "en": "Shan",
+    "mm": "ရှမ်း",
+    "code": 13
+  },
+  {
+    "en": "Ayeyarwaddy",
+    "mm": "ဧရာဝတီ",
+    "code": 14
+  }
+]
