@@ -8,6 +8,10 @@
     "test": "ts-mocha test/**/*.spec.ts",
     "lint": "eslint \"**\\*.ts\""
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aaronkst/mm-nrc.git"
+  },
   "keywords": ["NRIC", "NRC", "Myanmar", "Identification"],
   "author": "Aaron Chen",
   "files": [
@@ -17,7 +21,11 @@
     "dist/index.interface.d.ts",
     "dist/data/*"
   ],
+  "homepage": "https://github.com/Aaronkst/mm-nrc#readme",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Aaronkst/mm-nrc/issues"
+  },
   "devDependencies": {
     "@josee9988/minifyall": "^1.2.2",
     "@types/chai": "^4.3.1",
