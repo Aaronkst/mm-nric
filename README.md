@@ -5,30 +5,30 @@ This package is to streamline development for myanmar nrc input and verification
 ## Installation
 Using npm:
 ```bash
-npm install mm-nrc
+npm install mm-nric
 ```
 \
 Using yarn:
 ```bash
-yarn add mm-nrc
+yarn add mm-nric
 ```
 \
 Using pnpm:
 ```bash
-pnpm add mm-nrc
+pnpm add mm-nric
 ```
 \
 After installation you can use the package with either `import` or `requrie` approach.
 \
 Example
 ```js
-import { getStates } from 'mm-nrc'
+import { getStates } from 'mm-nric'
 
 console.log(getStates())
 
 // OR
 
-const mmNrc = require('mm-nrc')
+const mmNrc = require('mm-nric')
 
 console.log(mmNrc.getStates()
 ```
