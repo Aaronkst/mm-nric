@@ -1,6 +1,6 @@
 {
   "name": "mm-nric",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Nrc list and validation methods for myanmar nationality identification",
   "main": "dist/index.js",
   "scripts": {
