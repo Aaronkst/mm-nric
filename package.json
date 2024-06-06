@@ -1,7 +1,7 @@
 {
-  "name": "myanmar-nric-list",
+  "name": "mm-nric",
   "version": "0.0.1",
-  "description": "Nric list and validation methods for myanmar nationality identification",
+  "description": "Nrc list and validation methods for myanmar nationality identification",
   "main": "dist/index.js",
   "scripts": {
     "build": "rm -rf ./dist && tsc && npx minifyall --dir ./dist/data",
