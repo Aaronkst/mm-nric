@@ -1,23 +1,23 @@
-interface NrcType {
+interface NricType {
   en: string;
   mm: string;
   code: number;
 }
 
-export interface State extends NrcType {}
+export interface State extends NricType {}
 
-export interface District extends NrcType {
+export interface District extends NricType {
   fullEn: string;
   fullMm: string;
 }
 
-export enum NrcTypesEn {
+export enum NricTypesEn {
   N = 'N',
   E = 'E',
   P = 'P',
 }
 
-export enum NrcTypesMm {
+export enum NricTypesMm {
   N = 'နိုင်',
   E = 'ဧည့်',
   P = 'ပြု',

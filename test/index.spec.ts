@@ -1,10 +1,12 @@
 import { expect } from 'chai';
 import {
+  convertToEnglish,
+  convertToMyanmar,
   getDistricts,
   getDistrictsByState,
   getStates,
-  validateNrc,
-  validateNrcType,
+  validateNric,
+  validateNricType,
   validateState,
 } from '../src';
 
@@ -36,34 +38,48 @@ describe('Validator Test', (): void => {
   });
 
   it('Validate Nric - En (Success)', (): void => {
-    expect(validateNrcType('N')).to.be.equal(true);
+    expect(validateNricType('N')).to.be.equal(true);
   });
 
   it('Validate Nric - En (Fail)', (): void => {
-    expect(validateNrcType('Q')).to.be.equal(false);
+    expect(validateNricType('Q')).to.be.equal(false);
   });
 
   it('Validate Nric - Mm (Success)', (): void => {
-    expect(validateNrcType('နိုင်')).to.be.equal(true);
+    expect(validateNricType('နိုင်')).to.be.equal(true);
   });
 
   it('Validate Nric - Mm (Fail)', (): void => {
-    expect(validateNrcType('န')).to.be.equal(false);
+    expect(validateNricType('န')).to.be.equal(false);
   });
 
   it('Validate Nric (Success)', (): void => {
-    expect(validateNrc('12/PaZaDa(N)036558')).to.be.equal(true);
+    expect(validateNric('12/PaZaDa(N)036558')).to.be.equal(true);
   });
 
   it('Validate Nric (Fail)', (): void => {
-    expect(validateNrc('')).to.be.equal(false);
+    expect(validateNric('')).to.be.equal(false);
   });
 
   it('Validate Nric (Success)', (): void => {
-    expect(validateNrc('12/PaZaDa(N)036558')).to.be.equal(true);
+    expect(validateNric('12/PaZaDa(N)036558')).to.be.equal(true);
   });
 
   it('Validate Nric (Fail)', (): void => {
-    expect(validateNrc('')).to.be.equal(false);
+    expect(validateNric('')).to.be.equal(false);
+  });
+});
+
+describe('Converter Test', (): void => {
+  it('Convert to English', (): void => {
+    expect(convertToEnglish('၁၂/ပဇတ(နိုင်)၁၂၃၄၅၆')).to.be.equal(
+      '12/PAZATA(N)123456'
+    );
+  });
+
+  it('Convert to Myanmar', (): void => {
+    expect(convertToMyanmar('12/PAZATA(N)123456')).to.be.equal(
+      '၁၂/ပဇတ(နိုင်)၁၂၃၄၅၆'
+    );
   });
 });
