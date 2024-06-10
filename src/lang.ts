@@ -1,4 +1,5 @@
 import { NricTypesMm } from './index.interface';
+import { getDistrictsByState } from '.';
 
 const MyanmarNumbers =
   '\u1040\u1041\u1042\u1043\u1044\u1045\u1046\u1047\u1048\u1049';
@@ -142,17 +143,17 @@ export function convertMm(nric: string) {
   const startIndex = nric.indexOf('/');
   const endIndex = nric.indexOf('(');
 
+  const state = nric.split('/')[0];
+
+  const districts = getDistrictsByState(parseFloat(state));
+
   const extracted = nric.substring(startIndex + 1, endIndex).trim();
 
+  const district = districts.find((d) => d.en === extracted);
+
+  if (!district) throw new Error('Invalid Nric');
+
   nric = nric.replace(extracted, '');
-
-  let breakDown = [
-    extracted[0] + extracted[1],
-    extracted[2] + extracted[3],
-    extracted[4] + extracted[5],
-  ];
-
-  breakDown = breakDown.map((char) => StatesEn[char]);
 
   for (let i = 0; i < nric.length; i++) {
     if (nric[i] === '/' || nric[i] === '(' || nric[i] === ')') {
@@ -171,6 +172,6 @@ export function convertMm(nric: string) {
   }
 
   const tempRes = _res.split('/');
-  _res = tempRes[0] + '/' + breakDown.join('') + tempRes[1];
+  _res = tempRes[0] + '/' + district.mm + tempRes[1];
   return _res;
 }
