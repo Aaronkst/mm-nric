@@ -53,16 +53,12 @@ describe('Validator Test', (): void => {
     expect(validateNricType('န')).to.be.equal(false);
   });
 
-  it('Validate Nric (Success)', (): void => {
-    expect(validateNric('12/PaZaDa(N)036558')).to.be.equal(true);
+  it('Validate Nric (Success) - EN', (): void => {
+    expect(validateNric('12/PAZATA(N)123456')).to.be.equal(true);
   });
 
-  it('Validate Nric (Fail)', (): void => {
-    expect(validateNric('')).to.be.equal(false);
-  });
-
-  it('Validate Nric (Success)', (): void => {
-    expect(validateNric('12/PaZaDa(N)036558')).to.be.equal(true);
+  it('Validate Nric (Success) - MM', (): void => {
+    expect(validateNric('၁၂/ပဇတ(နိုင်)၁၂၃၄၅၆')).to.be.equal(true);
   });
 
   it('Validate Nric (Fail)', (): void => {

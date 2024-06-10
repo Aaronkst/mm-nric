@@ -79,17 +79,16 @@ export function validateNricFormat(nric: string): 'en' | 'mm' | boolean {
  */
 export function validateNric(nric: string): boolean {
   try {
-    if (validateNricFormat(nric)) return false;
+    const checkFormat = validateNricFormat(nric);
+    if (!checkFormat) return false;
+
+    if (checkFormat === 'mm') nric = convertEn(nric);
 
     // eslint-disable-next-line prefer-const
     let [code, string] = nric.split('/');
     string = string.replace(/[\(\)\s]/g, '');
 
-    if (
-      (string.length !== 13 && string.length !== 9) ||
-      isNaN(code as unknown as number)
-    )
-      return false;
+    if (isNaN(code as unknown as number)) return false;
 
     const parsedCode = parseFloat(code);
     if (parsedCode < 1 || parsedCode > 14) return false;
