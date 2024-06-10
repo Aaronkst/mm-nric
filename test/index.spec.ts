@@ -37,19 +37,19 @@ describe('Validator Test', (): void => {
     expect(validateState(0)).to.be.equal(false);
   });
 
-  it('Validate Nric - En (Success)', (): void => {
+  it('Validate Nric Type - En (Success)', (): void => {
     expect(validateNricType('N')).to.be.equal(true);
   });
 
-  it('Validate Nric - En (Fail)', (): void => {
+  it('Validate Nric Type - En (Fail)', (): void => {
     expect(validateNricType('Q')).to.be.equal(false);
   });
 
-  it('Validate Nric - Mm (Success)', (): void => {
+  it('Validate Nric Type - Mm (Success)', (): void => {
     expect(validateNricType('နိုင်')).to.be.equal(true);
   });
 
-  it('Validate Nric - Mm (Fail)', (): void => {
+  it('Validate Nric Type - Mm (Fail)', (): void => {
     expect(validateNricType('န')).to.be.equal(false);
   });
 
@@ -62,7 +62,7 @@ describe('Validator Test', (): void => {
   });
 
   it('Validate Nric (Fail)', (): void => {
-    expect(validateNric('')).to.be.equal(false);
+    expect(validateNric('12/PAZAT(N)000000')).to.be.equal(false);
   });
 });
 
